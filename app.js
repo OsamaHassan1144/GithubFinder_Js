@@ -1,4 +1,9 @@
+//Init Github
 const github = new Github
+
+//Init UI
+const ui = new UI;
+
 // Search User
 const searchUser = document.getElementById('searchUser');
 
