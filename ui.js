@@ -2,7 +2,7 @@ class UI{
     constructor(){
         this.profile = document.getElementById('profile');
     }
-
+    //Show Profile
     showProfile(user){
         this.profile.innerHTML = `
             <div class = "card card-body mb-3">
@@ -33,7 +33,41 @@ class UI{
         
         `;
 
+        
+    }
+    //Show Alert
+    showAlert(message,className){
+        //Create DIV
+        const div = document.createElement('div');
+        //Add classes
+        div.className = className;
+        //Add text
+        div.appendChild(document.createTextNode(message));
+        //Get parent
+        const container = document.querySelector('.searchContainer');
+        //Get search box
+        const search = document.querySelector('.search');
+        //Insert alert
+        container.insertBefore(div, search);
+        //Timeout after 3sec
+        setTimeout(()=>{
+            this.clearAlert();
+        },3000);
 
 
+    }
+
+     //Clear alert messahe
+     clearAlert(){
+         const currentAlert = document.querySelector('.alert');
+         if(currentAlert){
+             currentAlert.remove();
+         }
+    }
+
+
+    //Clear Profile
+    clearProfile(){
+        this.profile.innerHTML='';
     }
 }
